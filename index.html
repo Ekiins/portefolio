@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clément Fitoussi | Game System & Economy Designer</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Typography: Inter & JetBrains Mono -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <script>
@@ -26,12 +28,12 @@
     </script>
 
     <style>
-        body { background-color: #121212; color: #FFFFFF; }
+        body { background-color: #121212; color: #FFFFFF; -webkit-font-smoothing: antialiased; }
         .nav-label { transition: all 0.3s ease; text-shadow: 0 0 0px #00FF41; }
         .nav-item:hover .nav-label { color: #00FF41; text-shadow: 0 0 8px rgba(0, 255, 65, 0.6); transform: translateX(8px); }
         .nav-item:hover .nav-dot { background-color: #00FF41; box-shadow: 0 0 10px #00FF41; }
-        .profile-frame { filter: grayscale(100%); transition: all 0.5s ease; }
-        .profile-frame:hover { filter: grayscale(0%); }
+        .profile-frame { filter: grayscale(100%); transition: all 0.5s ease; border: 1px solid rgba(255,255,255,0.1); }
+        .profile-frame:hover { filter: grayscale(0%); border-color: #00FF41; }
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: #121212; }
         ::-webkit-scrollbar-thumb { background: #333; }
@@ -40,23 +42,27 @@
 </head>
 <body class="font-sans selection:bg-accent selection:text-dark">
 
-    <!-- LEFT STICKY NAVIGATION WIDGET -->
-    <nav class="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-6 border-l border-white/10 pl-4">
+    <!-- SIDE NAVIGATION WIDGET -->
+    <nav class="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-5 border-l border-white/10 pl-4">
         <a href="#intro" class="nav-item group flex items-center gap-4">
             <div class="nav-dot w-1.5 h-1.5 rounded-full bg-white/20 transition-all"></div>
             <span class="nav-label mono text-[9px] uppercase tracking-[0.2em] text-white/40">Intro</span>
         </a>
-        <a href="#project1" class="nav-item group flex items-center gap-4">
+        <a href="#case01" class="nav-item group flex items-center gap-4">
             <div class="nav-dot w-1.5 h-1.5 rounded-full bg-white/20 transition-all"></div>
-            <span class="nav-label mono text-[9px] uppercase tracking-[0.2em] text-white/40">Project 01</span>
+            <span class="nav-label mono text-[9px] uppercase tracking-[0.2em] text-white/40">Case_01</span>
         </a>
-        <a href="#project2" class="nav-item group flex items-center gap-4">
+        <a href="#case02" class="nav-item group flex items-center gap-4">
             <div class="nav-dot w-1.5 h-1.5 rounded-full bg-white/20 transition-all"></div>
-            <span class="nav-label mono text-[9px] uppercase tracking-[0.2em] text-white/40">Project 02</span>
+            <span class="nav-label mono text-[9px] uppercase tracking-[0.2em] text-white/40">Case_02</span>
         </a>
-        <a href="#project3" class="nav-item group flex items-center gap-4">
+        <a href="#case03" class="nav-item group flex items-center gap-4">
             <div class="nav-dot w-1.5 h-1.5 rounded-full bg-white/20 transition-all"></div>
-            <span class="nav-label mono text-[9px] uppercase tracking-[0.2em] text-white/40">Project 03</span>
+            <span class="nav-label mono text-[9px] uppercase tracking-[0.2em] text-white/40">Case_03</span>
+        </a>
+        <a href="#case04" class="nav-item group flex items-center gap-4">
+            <div class="nav-dot w-1.5 h-1.5 rounded-full bg-white/20 transition-all"></div>
+            <span class="nav-label mono text-[9px] uppercase tracking-[0.2em] text-white/40">Case_04</span>
         </a>
         <a href="#about" class="nav-item group flex items-center gap-4">
             <div class="nav-dot w-1.5 h-1.5 rounded-full bg-white/20 transition-all"></div>
@@ -69,161 +75,211 @@
     </nav>
 
     <!-- HEADER -->
-    <header class="p-8 lg:px-24 flex justify-between items-center border-b border-white/5 bg-dark/80 backdrop-blur-md sticky top-0 z-40">
+    <header class="p-8 lg:px-24 flex justify-between items-center border-b border-white/5 sticky top-0 bg-dark/90 backdrop-blur-md z-40">
         <div>
             <div class="font-extrabold text-xl tracking-tighter uppercase">Clément Fitoussi</div>
             <div class="mono text-[10px] text-accent uppercase tracking-widest mt-1 italic">Game System & Economy Designer</div>
         </div>
-        <div class="hidden md:flex items-center gap-8">
-            <a href="#about" class="mono text-[10px] text-white/40 hover:text-accent transition-colors uppercase tracking-widest">Personnel_Bio</a>
-            <a href="mailto:clem.fitoussi@gmail.com" class="mono text-xs border border-accent/30 px-4 py-2 hover:bg-accent hover:text-dark transition-all">GET_IN_TOUCH</a>
+        <div class="hidden md:flex gap-8 items-center">
+            <a href="mailto:clem.fitoussi@gmail.com" class="mono text-[11px] border border-accent/40 px-5 py-2 hover:bg-accent hover:text-dark transition-all font-bold">STRICT_CONTACT</a>
         </div>
     </header>
 
-    <main class="lg:ml-32 px-6 lg:px-24">
+    <main class="lg:ml-40 px-6 lg:px-24 pb-24">
         
-        <!-- HERO SECTION -->
-        <section id="intro" class="py-32 lg:py-48 max-w-4xl">
-            <div class="mono text-accent text-xs mb-4 uppercase tracking-[0.3em] font-bold">// SYSTEM_MANIFESTO</div>
-            <h1 class="text-6xl lg:text-8xl font-extrabold tracking-tighter leading-[0.85] mb-12">
+        <!-- HERO -->
+        <section id="intro" class="py-32 lg:py-52 max-w-5xl">
+            <div class="mono text-accent text-xs mb-4 uppercase tracking-[0.4em] font-bold">// CORE_SYSTEM_ARCHITECT</div>
+            <h1 class="text-6xl lg:text-9xl font-extrabold tracking-tighter leading-[0.8] mb-12">
                 GAME ECONOMY <br>& SYSTEM DESIGN
             </h1>
-            <p class="text-xl lg:text-2xl text-bodyText font-light leading-relaxed max-w-2xl">
-                I build mathematical frameworks that turn player behavior into sustainable ecosystems. 
-                Focusing on <span class="text-white">predictive modeling</span> and <span class="text-white">economic stability</span>.
+            <p class="text-xl lg:text-2xl text-bodyText font-light leading-relaxed max-w-3xl">
+                Building sustainable, data-driven systems for global gaming titles. 
+                Expertise in <span class="text-white">mathematical modeling</span>, <span class="text-white">unity scripting</span>, and <span class="text-white">live-ops economy management</span>.
             </p>
         </section>
 
-        <!-- PROJECT 1 -->
-        <section id="project1" class="py-24 border-t border-white/5">
-            <div class="mono text-accent text-xs mb-4">// CASE_01</div>
-            <h2 class="text-4xl font-bold uppercase tracking-tight mb-16">Battle Pass Progression Framework</h2>
-            <div class="grid lg:grid-cols-2 gap-16 mb-20">
-                <div>
-                    <h3 class="mono text-[10px] uppercase text-white/40 mb-6 tracking-widest">Context & Problem</h3>
-                    <p class="text-bodyText leading-relaxed italic border-l-2 border-accent/20 pl-6">
-                        "How do we balance progression for a 90-day season where casuals feel progress but hardcore players aren't bored by week 3?"
-                    </p>
-                    <p class="text-bodyText mt-4">
-                        Developed a non-linear XP curve system that normalized progression speed through dynamic quest scaling and "catch-up" mechanics.
+        <!-- CASE 01: COMBAT & TACTICAL -->
+        <section id="case01" class="py-24 border-t border-white/5">
+            <div class="mono text-accent text-xs mb-4">// CASE_01: Combat & Tactical Systems</div>
+            <h2 class="text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-16">Chain of Alliance</h2>
+            
+            <div class="grid lg:grid-cols-12 gap-12 mb-20">
+                <div class="lg:col-span-7">
+                    <h3 class="mono text-[10px] uppercase text-white/40 mb-6 tracking-widest italic">A. Context & Problem</h3>
+                    <p class="text-lg text-bodyText leading-relaxed">
+                        Tasked with a complete redesign of the combat action economy. The project required deep damage calculation modeling and item progression overhaul to improve tactical depth while preventing early-game stat inflation. 
                     </p>
                 </div>
-                <div class="border border-accent p-6 bg-accent/5">
-                    <h3 class="mono text-[10px] uppercase text-accent mb-4 tracking-widest">Tools Used</h3>
-                    <ul class="mono text-sm space-y-2 text-white/80">
-                        <li>> Microsoft Excel (Monte Carlo)</li>
-                        <li>> Python (Data Validation)</li>
-                        <li>> Miro (Flow Mapping)</li>
+                <div class="lg:col-span-4 lg:col-start-9 border border-accent p-6 bg-accent/5">
+                    <h3 class="mono text-[10px] uppercase text-accent mb-4 tracking-widest">Stack</h3>
+                    <ul class="mono text-sm space-y-2 text-white/90">
+                        <li>> Unity / C#</li>
+                        <li>> JSON Scripting</li>
+                        <li>> Confluence Documentation</li>
                     </ul>
                 </div>
             </div>
+
             <div class="mb-20">
-                <div class="bg-white/5 aspect-video border border-white/10 flex items-center justify-center group overflow-hidden">
-                    <span class="text-white/20 mono text-xs uppercase group-hover:text-accent transition-colors">[ Insert_Excel_Progression_Curves_Screenshot ]</span>
+                <div class="bg-white/5 aspect-video border border-white/10 flex items-center justify-center group overflow-hidden relative">
+                    <span class="text-white/20 mono text-xs uppercase group-hover:text-accent transition-colors text-center p-4">
+                        [ Technical Screenshot: Action Economy Flowchart & Unity JSON Inspector ]
+                    </span>
                 </div>
-                <p class="mono text-[10px] text-white/30 text-center mt-6 uppercase tracking-widest italic">Fig 1.1: Visualizing XP injection vs. Player Churn triggers</p>
+                <p class="mono text-[10px] text-white/30 text-center mt-6 uppercase tracking-widest">Fig 1.0: Combat flow logic and damage coefficient scaling matrix</p>
             </div>
+
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="bg-white/[0.02] p-8 border border-white/5">
-                    <div class="text-accent text-2xl font-bold mb-2">22%</div>
-                    <div class="mono text-[10px] uppercase text-white/40 mb-2">Retention Impact</div>
-                    <p class="text-xs text-bodyText">Increase in Day-30 retention for casual cohorts.</p>
+                    <div class="text-accent text-2xl font-bold mb-2">Systemic Depth</div>
+                    <p class="text-xs text-bodyText leading-relaxed">Implemented a modular item system allowing for emergent tactical synergies between hero classes.</p>
                 </div>
                 <div class="bg-white/[0.02] p-8 border border-white/5">
-                    <div class="text-accent text-2xl font-bold mb-2">Stable</div>
-                    <div class="mono text-[10px] uppercase text-white/40 mb-2">Economy Health</div>
-                    <p class="text-xs text-bodyText">Currency velocity within 5% of design targets.</p>
+                    <div class="text-accent text-2xl font-bold mb-2">Power Creep</div>
+                    <p class="text-xs text-bodyText leading-relaxed">Secured long-term sustainability by anchoring damage formulas to non-linear growth curves.</p>
                 </div>
                 <div class="bg-white/[0.02] p-8 border border-white/5">
-                    <div class="text-accent text-2xl font-bold mb-2">94%</div>
-                    <div class="mono text-[10px] uppercase text-white/40 mb-2">Pass Completion</div>
-                    <p class="text-xs text-bodyText">Target efficiency reached for engaged players.</p>
+                    <div class="text-accent text-2xl font-bold mb-2">Optimized</div>
+                    <p class="text-xs text-bodyText leading-relaxed">Standardized data entry through refined JSON structures, reducing implementation time by 30%.</p>
                 </div>
             </div>
         </section>
 
-        <!-- PROJECT 2 -->
-        <section id="project2" class="py-24 border-t border-white/5">
-            <div class="mono text-accent text-xs mb-4">// CASE_02</div>
-            <h2 class="text-4xl font-bold uppercase tracking-tight mb-16">Economy Sanity Parity Tool</h2>
-            <div class="grid lg:grid-cols-2 gap-16 mb-20">
-                <div>
-                    <h3 class="mono text-[10px] uppercase text-white/40 mb-6 tracking-widest">The Risk Mitigation</h3>
-                    <p class="text-bodyText">
-                        Manual balancing leads to human error. I built a proprietary validation tool to ensure that balance changes in Excel matched the live JSON configurations perfectly.
+        <!-- CASE 02: PREDICTIVE ECONOMY -->
+        <section id="case02" class="py-24 border-t border-white/5">
+            <div class="mono text-accent text-xs mb-4">// CASE_02: Predictive Economy Modeling</div>
+            <h2 class="text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-16">Metakings / Seascape</h2>
+            
+            <div class="grid lg:grid-cols-12 gap-12 mb-20">
+                <div class="lg:col-span-7">
+                    <h3 class="mono text-[10px] uppercase text-white/40 mb-6 tracking-widest italic">A. Context & Problem</h3>
+                    <p class="text-lg text-bodyText leading-relaxed">
+                        Engineered large-scale Excel simulations to balance complex player progression and rewards. Designed comprehensive flowcharts to manage resource generation (faucets) and sinks to ensure economic parity across a multi-token environment.
                     </p>
                 </div>
-                <div class="border border-accent p-6 bg-accent/5">
-                    <h3 class="mono text-[10px] uppercase text-accent mb-4 tracking-widest">Tools Used</h3>
-                    <ul class="mono text-sm space-y-2 text-white/80">
-                        <li>> Python (Pandas/JSON)</li>
-                        <li>> Git (CI/CD Pipeline)</li>
+                <div class="lg:col-span-4 lg:col-start-9 border border-accent p-6 bg-accent/5">
+                    <h3 class="mono text-[10px] uppercase text-accent mb-4 tracking-widest">Stack</h3>
+                    <ul class="mono text-sm space-y-2 text-white/90">
+                        <li>> Excel (Advanced Sim)</li>
+                        <li>> Python (Data Modeling)</li>
+                        <li>> SQL / Miro</li>
                     </ul>
                 </div>
             </div>
+
             <div class="mb-20">
-                <div class="bg-white/5 aspect-video border border-white/10 flex items-center justify-center group overflow-hidden">
-                    <span class="text-white/20 mono text-xs uppercase group-hover:text-accent transition-colors">[ Insert_Python_CLI_Screenshot ]</span>
+                <div class="bg-white/5 aspect-video border border-white/10 flex items-center justify-center group overflow-hidden relative">
+                    <span class="text-white/20 mono text-xs uppercase group-hover:text-accent transition-colors text-center p-4">
+                        [ Technical Screenshot: Predictive Resource Flow & Monte Carlo Simulation ]
+                    </span>
                 </div>
             </div>
+
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="bg-white/[0.02] p-8 border border-white/5">
-                    <div class="text-accent text-2xl font-bold mb-2">0</div>
-                    <div class="mono text-[10px] uppercase text-white/40 mb-2">Post-Launch Bugs</div>
-                    <p class="text-xs text-bodyText">Zero hotfixes required during the Q4 cycle.</p>
+                    <div class="text-accent text-2xl font-bold mb-2">Economic Parity</div>
+                    <p class="text-xs text-bodyText leading-relaxed">Maintained ±2% deviation from target inflation rates over 12-month simulated cycles.</p>
                 </div>
                 <div class="bg-white/[0.02] p-8 border border-white/5">
-                    <div class="text-accent text-2xl font-bold mb-2">-80%</div>
-                    <div class="mono text-[10px] uppercase text-white/40 mb-2">QA Overhead</div>
-                    <p class="text-xs text-bodyText">Reduction in manual verification time.</p>
+                    <div class="text-accent text-2xl font-bold mb-2">Source/Sink</div>
+                    <p class="text-xs text-bodyText leading-relaxed">Architected a "Dynamic Sink" event system to drain excess currency during peak supply phases.</p>
                 </div>
                 <div class="bg-white/[0.02] p-8 border border-white/5">
-                    <div class="text-accent text-2xl font-bold mb-2">100%</div>
-                    <div class="mono text-[10px] uppercase text-white/40 mb-2">Data Integrity</div>
-                    <p class="text-xs text-bodyText">Perfect parity between GDD and Prod.</p>
+                    <div class="text-accent text-2xl font-bold mb-2">Modeling</div>
+                    <p class="text-xs text-bodyText leading-relaxed">Automated progression speed tests using Python scripts to identify early-game bottlenecks.</p>
                 </div>
             </div>
         </section>
 
-        <!-- PROJECT 3 -->
-        <section id="project3" class="py-24 border-t border-white/5">
-            <div class="mono text-accent text-xs mb-4">// CASE_03</div>
-            <h2 class="text-4xl font-bold uppercase tracking-tight mb-16">Live Ops Inflation Sink Model</h2>
-            <div class="grid lg:grid-cols-2 gap-16 mb-20">
-                <div>
-                    <h3 class="mono text-[10px] uppercase text-white/40 mb-6 tracking-widest">Strategic Balancing</h3>
-                    <p class="text-bodyText">
-                        In a mature live-service game, currency accumulation was devaluing rewards. I architected a "Resource Sink" event system to periodically incentivize players to burn surplus reserves.
+        <!-- CASE 03: IDLE ECONOMY -->
+        <section id="case03" class="py-24 border-t border-white/5">
+            <div class="mono text-accent text-xs mb-4">// CASE_03: Idle Economy & Data Analysis</div>
+            <h2 class="text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-16">Green Panda Games (Ubisoft)</h2>
+            
+            <div class="grid lg:grid-cols-12 gap-12 mb-20">
+                <div class="lg:col-span-7">
+                    <h3 class="mono text-[10px] uppercase text-white/40 mb-6 tracking-widest italic">A. Context & Problem</h3>
+                    <p class="text-lg text-bodyText leading-relaxed">
+                        Designed hyper-casual and idle economies focusing on session duration and long-term retention. Collaborated with data scientists to analyze player KPIs and iterate on monetization loops based on real-world behavior data.
                     </p>
                 </div>
-                <div class="border border-accent p-6 bg-accent/5">
-                    <h3 class="mono text-[10px] uppercase text-accent mb-4 tracking-widest">Tools Used</h3>
-                    <ul class="mono text-sm space-y-2 text-white/80">
-                        <li>> SQL (Behavior Data)</li>
-                        <li>> Tableau (Visualization)</li>
+                <div class="lg:col-span-4 lg:col-start-9 border border-accent p-6 bg-accent/5">
+                    <h3 class="mono text-[10px] uppercase text-accent mb-4 tracking-widest">Stack</h3>
+                    <ul class="mono text-sm space-y-2 text-white/90">
+                        <li>> Tableau</li>
+                        <li>> KPI Frameworks</li>
+                        <li>> Excel (Standardized Templates)</li>
                     </ul>
                 </div>
             </div>
+
             <div class="mb-20">
-                <div class="bg-white/5 aspect-video border border-white/10 flex items-center justify-center group overflow-hidden">
-                    <span class="text-white/20 mono text-xs uppercase group-hover:text-accent transition-colors">[ Insert_Tableau_Heatmap_Screenshot ]</span>
+                <div class="bg-white/5 aspect-video border border-white/10 flex items-center justify-center group overflow-hidden relative">
+                    <span class="text-white/20 mono text-xs uppercase group-hover:text-accent transition-colors text-center p-4">
+                        [ Technical Screenshot: KPI Dashboard & Retention Cohort Analysis ]
+                    </span>
                 </div>
             </div>
+
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="bg-white/[0.02] p-8 border border-white/5">
-                    <div class="text-accent text-2xl font-bold mb-2">-40%</div>
-                    <div class="mono text-[10px] uppercase text-white/40 mb-2">Supply Control</div>
-                    <p class="text-xs text-bodyText">Reduction in soft currency float.</p>
+                    <div class="text-accent text-2xl font-bold mb-2">Standardized</div>
+                    <p class="text-xs text-bodyText leading-relaxed">Created internal economy templates used across 5+ hyper-casual titles to ensure quality.</p>
                 </div>
                 <div class="bg-white/[0.02] p-8 border border-white/5">
-                    <div class="text-accent text-2xl font-bold mb-2">+12%</div>
-                    <div class="mono text-[10px] uppercase text-white/40 mb-2">IAP Uplift</div>
-                    <p class="text-xs text-bodyText">Increased microtransaction sales.</p>
+                    <div class="text-accent text-2xl font-bold mb-2">Retention</div>
+                    <p class="text-xs text-bodyText leading-relaxed">Optimized prestige loops resulting in an average 15% increase in Day-7 retention.</p>
                 </div>
                 <div class="bg-white/[0.02] p-8 border border-white/5">
-                    <div class="text-accent text-2xl font-bold mb-2">High</div>
-                    <div class="mono text-[10px] uppercase text-white/40 mb-2">Stability</div>
-                    <p class="text-xs text-bodyText">Stabilized Auction House price floor.</p>
+                    <div class="text-accent text-2xl font-bold mb-2">Data-Driven</div>
+                    <p class="text-xs text-bodyText leading-relaxed">Utilized A/B testing data to refine soft-currency reward rates in real-time.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASE 04: LIVE-OPS & GACHA -->
+        <section id="case04" class="py-24 border-t border-white/5">
+            <div class="mono text-accent text-xs mb-4">// CASE_04: Live-Ops & Gacha Mechanics</div>
+            <h2 class="text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-16">Owlient (Ubisoft)</h2>
+            
+            <div class="grid lg:grid-cols-12 gap-12 mb-20">
+                <div class="lg:col-span-7">
+                    <h3 class="mono text-[10px] uppercase text-white/40 mb-6 tracking-widest italic">A. Context & Problem</h3>
+                    <p class="text-lg text-bodyText leading-relaxed">
+                        Balanced internal economy and gacha mechanics for 'Tom Clancy's Elite Squad'. Focused on monetization design integrity, Battle Pass value propositions, and gacha transparency for high-compliance global markets.
+                    </p>
+                </div>
+                <div class="lg:col-span-4 lg:col-start-9 border border-accent p-6 bg-accent/5">
+                    <h3 class="mono text-[10px] uppercase text-accent mb-4 tracking-widest">Stack</h3>
+                    <ul class="mono text-sm space-y-2 text-white/90">
+                        <li>> Monetization Design</li>
+                        <li>> Battle Pass Frameworks</li>
+                        <li>> Excel Documentation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mb-20">
+                <div class="bg-white/5 aspect-video border border-white/10 flex items-center justify-center group overflow-hidden relative">
+                    <span class="text-white/20 mono text-xs uppercase group-hover:text-accent transition-colors text-center p-4">
+                        [ Technical Screenshot: Gacha Probability Matrix & Monetization Loop ]
+                    </span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white/[0.02] p-8 border border-white/5">
+                    <div class="text-accent text-2xl font-bold mb-2">Integrity</div>
+                    <p class="text-xs text-bodyText leading-relaxed">Ensured gacha transparency and pity systems met all legal and ethical design standards.</p>
+                </div>
+                <div class="bg-white/[0.02] p-8 border border-white/5">
+                    <div class="text-accent text-2xl font-bold mb-2">Live-Ops</div>
+                    <p class="text-xs text-bodyText leading-relaxed">Managed weekly economy updates and event reward balancing for active player bases.</p>
+                </div>
+                <div class="bg-white/[0.02] p-8 border border-white/5">
+                    <div class="text-accent text-2xl font-bold mb-2">Value</div>
+                    <p class="text-xs text-bodyText leading-relaxed">Designed BP reward tracks that maximized both player perceived value and revenue targets.</p>
                 </div>
             </div>
         </section>
@@ -232,39 +288,49 @@
         <section id="about" class="py-32 border-t border-white/5">
             <div class="grid lg:grid-cols-12 gap-16 items-start">
                 <div class="lg:col-span-4 sticky top-32">
-                    <div class="profile-frame aspect-[4/5] bg-white/5 border border-white/10 overflow-hidden relative group">
-                        <!-- REPLACE WITH YOUR PHOTO -->
+                    <div class="profile-frame aspect-[4/5] bg-white/5 overflow-hidden relative group">
+                        <!-- REPLACE WITH ACTUAL PHOTO -->
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" alt="Clément Fitoussi" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 border-2 border-accent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                        <div class="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
                     </div>
-                    <div class="mt-4 mono text-[10px] text-accent tracking-widest uppercase text-center">Personnel_Record_671-B</div>
+                    <div class="mt-4 mono text-[10px] text-accent tracking-widest uppercase text-center font-bold">Personnel_Record_671-B</div>
                 </div>
                 <div class="lg:col-span-8">
-                    <div class="mono text-accent text-xs mb-4 uppercase tracking-widest">// PERSONNEL_BIO</div>
-                    <h2 class="text-4xl font-bold uppercase tracking-tight mb-8">Clément Fitoussi</h2>
-                    <div class="space-y-6 text-bodyText text-lg leading-relaxed max-w-2xl">
+                    <div class="mono text-accent text-xs mb-4 uppercase tracking-[0.3em] font-bold">// THE_ARCHITECT</div>
+                    <h2 class="text-5xl font-extrabold uppercase tracking-tight mb-10">Clément Fitoussi</h2>
+                    <div class="space-y-6 text-bodyText text-xl font-light leading-relaxed max-w-2xl">
                         <p>
-                            I am a Game System & Economy Designer obsessed with the invisible math that keeps digital worlds alive. With a focus on <span class="text-white">live-ops health</span> and <span class="text-white">monetization integrity</span>, I bridge the gap between creative ambition and technical reality.
+                            Game System & Economy Designer with a background at <span class="text-white">Ubisoft, Chromaway, and Metakings</span>. Specialist in mathematical frameworks, Unity/JSON scripting, and predictive modeling for Live-Ops.
                         </p>
                         <p>
-                            Currently based in [Your Location], I spend my time auditing currency velocities and designing progression loops that feel rewarding for every player archetype.
+                            I approach game design as an engineering challenge. My methodology focuses on the unseen logic that drives player behavior, ensuring that every currency sink and reward curve serves both the narrative and the business model.
                         </p>
                     </div>
-                    <div class="mt-12 pt-12 border-t border-white/5 grid grid-cols-2 gap-8">
+
+                    <!-- Tech Stack Matrix -->
+                    <div class="mt-16 pt-16 border-t border-white/5 grid grid-cols-2 md:grid-cols-3 gap-12">
                         <div>
-                            <span class="mono text-[10px] uppercase text-white/40 block mb-3">Core Expertise</span>
-                            <ul class="mono text-[11px] space-y-2 text-white/70">
-                                <li>> Mathematical Modeling</li>
-                                <li>> Monetization Design</li>
-                                <li>> Systems Architecture</li>
+                            <span class="mono text-[10px] uppercase text-white/40 block mb-4 tracking-widest">Logic & Code</span>
+                            <ul class="mono text-xs space-y-2 text-white/80">
+                                <li>> Unity</li>
+                                <li>> Python</li>
+                                <li>> SQL</li>
                             </ul>
                         </div>
                         <div>
-                            <span class="mono text-[10px] uppercase text-white/40 block mb-3">Tech Stack</span>
-                            <ul class="mono text-[11px] space-y-2 text-white/70">
-                                <li>> Python / SQL</li>
-                                <li>> Excel (Advanced Sim)</li>
-                                <li>> Machinations.io</li>
+                            <span class="mono text-[10px] uppercase text-white/40 block mb-4 tracking-widest">Economy & Data</span>
+                            <ul class="mono text-xs space-y-2 text-white/80">
+                                <li>> Excel (Advanced)</li>
+                                <li>> Tableau</li>
+                                <li>> KPI Analysis</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <span class="mono text-[10px] uppercase text-white/40 block mb-4 tracking-widest">Infrastructure</span>
+                            <ul class="mono text-xs space-y-2 text-white/80">
+                                <li>> Github</li>
+                                <li>> JSON/Scripting</li>
+                                <li>> CI/CD Pipelines</li>
                             </ul>
                         </div>
                     </div>
@@ -273,21 +339,23 @@
         </section>
 
         <!-- CONTACT SECTION -->
-        <section id="contact" class="py-48 border-t border-white/5 text-center">
-            <h2 class="text-5xl lg:text-7xl font-extrabold uppercase tracking-tighter mb-12">Let's build <br>better worlds.</h2>
-            <a href="mailto:clem.fitoussi@gmail.com" class="inline-block mono text-lg bg-accent text-dark px-12 py-5 font-bold hover:shadow-[0_0_20px_#00FF41] transition-all">
-                CONTACT_ME
+        <section id="contact" class="py-52 border-t border-white/5 text-center">
+            <h2 class="text-6xl lg:text-8xl font-extrabold uppercase tracking-tighter mb-12">LET'S BUILD <br>THE MATH.</h2>
+            <p class="text-bodyText mb-16 max-w-lg mx-auto text-lg font-light">Available for senior system design roles or complex economic consulting.</p>
+            <a href="mailto:clem.fitoussi@gmail.com" class="inline-block mono text-lg bg-accent text-dark px-14 py-6 font-black hover:shadow-[0_0_30px_rgba(0,255,65,0.5)] transition-all uppercase">
+                INITIATE_CONTACT
             </a>
         </section>
 
     </main>
 
     <!-- FOOTER -->
-    <footer class="p-12 lg:px-24 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 opacity-40">
-        <div class="mono text-[10px] tracking-widest uppercase">© 2026 Clément Fitoussi</div>
-        <div class="flex gap-8 mono text-[10px] tracking-widest uppercase">
-            <a href="mailto:clem.fitoussi@gmail.com" class="hover:text-accent">Email</a>
-            <a href="#" class="hover:text-accent">LinkedIn</a>
+    <footer class="p-12 lg:px-24 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 opacity-30">
+        <div class="mono text-[10px] tracking-widest uppercase font-bold">© 2026 Clément Fitoussi // SYSTEM_V3.0</div>
+        <div class="flex gap-10 mono text-[10px] tracking-widest uppercase">
+            <a href="mailto:clem.fitoussi@gmail.com" class="hover:text-accent transition-colors underline decoration-accent/30 underline-offset-4">Email</a>
+            <a href="#" class="hover:text-accent transition-colors underline decoration-accent/30 underline-offset-4">LinkedIn</a>
+            <a href="#" class="hover:text-accent transition-colors underline decoration-accent/30 underline-offset-4">Resume</a>
         </div>
     </footer>
 
